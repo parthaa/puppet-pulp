@@ -332,6 +332,7 @@ class pulp (
   $node_oauth_secret         = $pulp::params::node_oauth_secret,
   $disabled_authenticators   = $pulp::params::disabled_authenticators,
   $additional_wsgi_scripts   = $pulp::params::additional_wsgi_scripts,
+  $max_keep_alive_requests   = $pulp::params::max_keep_alive_requests,
 ) inherits pulp::params {
   validate_bool($enable_docker)
   validate_bool($enable_rpm)
@@ -352,6 +353,7 @@ class pulp (
   validate_bool($lazy_https_retrieval)
   validate_array($disabled_authenticators)
   validate_hash($additional_wsgi_scripts)
+  validate_integer($max_keep_alive_requests)
 
   include ::mongodb::client
   include ::pulp::apache

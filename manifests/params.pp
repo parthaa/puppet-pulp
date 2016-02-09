@@ -106,6 +106,8 @@ class pulp::params {
 
   $osreleasemajor = regsubst($::operatingsystemrelease, '^(\d+)\..*$', '\1')
 
+  $max_keep_alive_requests = 10000
+
   case $::osfamily {
     'RedHat' : {
       case $osreleasemajor {
