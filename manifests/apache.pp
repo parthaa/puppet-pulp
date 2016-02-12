@@ -7,6 +7,9 @@ class pulp::apache {
 
   $apache_version = $::apache::apache_version
 
+  Apache<||> { $keepalive = true }
+  Apache<||> { $max_keepalive_requests = 10000 }
+
   if $pulp::manage_httpd {
     if $pulp::enable_http or $pulp::enable_puppet {
       apache::vhost { 'pulp-http':
